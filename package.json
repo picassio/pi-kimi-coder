@@ -4,7 +4,7 @@
   "description": "Pi extension for Kimi K2 Coding plan — OAuth-based provider with kimi-for-coding model",
   "type": "module",
   "keywords": ["pi-package", "pi-extension", "kimi", "moonshot", "kimi-coder", "ai-provider"],
-  "author": "",
+  "author": "picassio",
   "license": "MIT",
   "repository": {
     "type": "git",
