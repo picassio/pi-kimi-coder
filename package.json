@@ -1,0 +1,29 @@
+{
+  "name": "pi-kimi-coder",
+  "version": "1.0.0",
+  "description": "Pi extension for Kimi K2 Coding plan — OAuth-based provider with kimi-for-coding model",
+  "type": "module",
+  "keywords": ["pi-package", "pi-extension", "kimi", "moonshot", "kimi-coder", "ai-provider"],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picassio/pi-kimi-coder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/picassio/pi-kimi-coder/issues"
+  },
+  "homepage": "https://github.com/picassio/pi-kimi-coder#readme",
+  "pi": {
+    "extensions": ["./extensions/index.ts"]
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-ai": "*"
+  },
+  "files": [
+    "extensions/",
+    "README.md",
+    "LICENSE"
+  ]
+}
