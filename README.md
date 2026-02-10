@@ -44,23 +44,28 @@ A [pi](https://github.com/badlogic/pi-mono) extension that adds the **Kimi K2 Co
 
 ## Installation
 
-### From local path
+### From npm (recommended)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pi-kimi-coder.git
-pi install /path/to/pi-kimi-coder
+pi install npm:pi-kimi-coder
 ```
 
 ### Try without installing
 
 ```bash
-pi -e /path/to/pi-kimi-coder
+pi -e npm:pi-kimi-coder
+```
+
+### From GitHub
+
+```bash
+pi install git:github.com/picassio/pi-kimi-coder
 ```
 
 ### Install to a specific project only
 
 ```bash
-pi install -l /path/to/pi-kimi-coder
+pi install -l npm:pi-kimi-coder
 ```
 
 ## Authentication
@@ -250,7 +255,7 @@ The extension is listed under `packages` after installation:
 ```json
 {
   "packages": [
-    "/path/to/pi-kimi-coder"
+    "npm:pi-kimi-coder"
   ]
 }
 ```
@@ -341,7 +346,7 @@ pi list
 If `pi-kimi-coder` is not listed:
 
 ```bash
-pi install /path/to/pi-kimi-coder
+pi install npm:pi-kimi-coder
 ```
 
 ## Development
