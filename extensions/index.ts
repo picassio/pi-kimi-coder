@@ -240,7 +240,7 @@ async function refreshAccessToken(refreshToken: string): Promise<KimiToken> {
   const expiresIn = Number(data.expires_in || 3600);
   return {
     access_token: String(data.access_token),
-    refresh_token: String(data.refresh_token),
+    refresh_token: data.refresh_token ? String(data.refresh_token) : refreshToken,
     expires_at: Date.now() / 1000 + expiresIn,
     scope: String(data.scope || "kimi-code"),
     token_type: String(data.token_type || "Bearer"),
@@ -271,11 +271,10 @@ async function loginKimiCoder(
   // Start device flow
   const auth = await requestDeviceAuthorization();
 
-  // Show device code to user — pi will open the browser
-  callbacks.onDeviceCode({
-    userCode: auth.user_code,
-    verificationUri:
-      auth.verification_uri_complete || auth.verification_uri,
+  // Open browser with the verification URI (includes user code pre-filled)
+  callbacks.onAuth({
+    url: auth.verification_uri_complete || auth.verification_uri,
+    instructions: `Your device code: ${auth.user_code}`,
   });
 
   // Poll for token
@@ -347,7 +346,6 @@ export default function (pi: ExtensionAPI) {
     baseUrl: BASE_URL,
     apiKey: "KIMI_CODER_API_KEY",
     api: "openai-completions",
-    authHeader: true,
 
     // Required: Kimi Coding API checks User-Agent to verify it's a coding agent
     headers: {

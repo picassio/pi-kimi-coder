@@ -1,6 +1,6 @@
 {
   "name": "pi-kimi-coder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pi extension for Kimi K2 Coding plan — OAuth-based provider with kimi-for-coding model",
   "type": "module",
   "keywords": [
