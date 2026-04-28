@@ -8,7 +8,7 @@
  * - OAuth device flow login via `/login kimi-coder`
  * - Auto-imports existing kimi-cli tokens from ~/.kimi/credentials/kimi-code.json
  * - Automatic token refresh
- * - Models: kimi-for-coding (powered by kimi-k2.5), kimi-k2.5
+ * - Models: kimi-for-coding (powered by kimi-k2.6), kimi-k2.6, kimi-k2-thinking
  *
  * Usage:
  *   pi install /path/to/pi-kimi-coder
@@ -355,7 +355,7 @@ export default function (pi: ExtensionAPI) {
     models: [
       {
         id: "kimi-for-coding",
-        name: "Kimi for Coding (K2.5)",
+        name: "Kimi for Coding (K2.6)",
         reasoning: true,
         input: ["text", "image"],
         cost: {
@@ -374,8 +374,28 @@ export default function (pi: ExtensionAPI) {
         },
       },
       {
-        id: "kimi-k2.5",
-        name: "Kimi K2.5",
+        id: "kimi-k2.6",
+        name: "Kimi K2.6",
+        reasoning: true,
+        input: ["text", "image"],
+        cost: {
+          input: 0,
+          output: 0,
+          cacheRead: 0,
+          cacheWrite: 0,
+        },
+        contextWindow: 262144,
+        maxTokens: 32768,
+        compat: {
+          thinkingFormat: "zai",
+          maxTokensField: "max_tokens",
+          supportsDeveloperRole: false,
+          supportsStore: false,
+        },
+      },
+      {
+        id: "kimi-k2-thinking",
+        name: "Kimi K2 Thinking",
         reasoning: true,
         input: ["text", "image"],
         cost: {

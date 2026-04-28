@@ -1,6 +1,6 @@
 # pi-kimi-coder
 
-A [pi](https://github.com/badlogic/pi-mono) extension that adds the **Kimi K2 Coding Plan** as a provider. Use Moonshot AI's `kimi-for-coding` model directly inside pi with full tool use, extended thinking, and image support.
+A [pi](https://github.com/badlogic/pi-mono) extension that adds the **Kimi K2 Coding Plan** as a provider. Use Moonshot AI's `kimi-for-coding` (K2.6) model directly inside pi with full tool use, extended thinking, and image support.
 
 > **What is the K2 Coding Plan?** Moonshot AI offers a [subscription plan](https://kimi.com) that gives unlimited (fair-use) access to their flagship coding model through `api.kimi.com/coding/v1`. This is different from the pay-per-token Open Platform at `api.moonshot.ai`.
 
@@ -34,6 +34,7 @@ A [pi](https://github.com/badlogic/pi-mono) extension that adds the **Kimi K2 Co
 - **Extended thinking** — full reasoning/chain-of-thought support via the `zai` thinking format
 - **Image input** — send images to the model for analysis
 - **262K context window** — large context for working with entire codebases
+- **Three model options** — `kimi-for-coding` (stable alias), `kimi-k2.6` (direct), and `kimi-k2-thinking` (deep reasoning)
 - **$0 cost tracking** — subscription plan, so no per-token costs to track
 
 ## Prerequisites
@@ -166,10 +167,11 @@ pi --provider kimi-coder --model kimi-for-coding --thinking high -p "refactor th
 
 | Model ID | Display Name | Context | Reasoning | Image | Description |
 |----------|-------------|---------|-----------|-------|-------------|
-| `kimi-for-coding` | Kimi for Coding (K2.5) | 262K | ✅ | ✅ | Coding-optimized, default for Coding Plan |
-| `kimi-k2.5` | Kimi K2.5 | 262K | ✅ | ✅ | Flagship K2.5 model |
+| `kimi-for-coding` | Kimi for Coding (K2.6) | 262K | ✅ | ✅ | Stable alias, coding-optimized, default for Coding Plan |
+| `kimi-k2.6` | Kimi K2.6 | 262K | ✅ | ✅ | Direct K2.6 access, Moonshot's latest flagship |
+| `kimi-k2-thinking` | Kimi K2 Thinking | 262K | ✅ | ✅ | Deep reasoning mode for complex multi-step problems |
 
-Both models:
+All models:
 - Use the **`zai` thinking format** (extended reasoning via `reasoning_content` in streamed responses)
 - Support **text and image inputs**
 - Have a **262,144 token** context window
@@ -279,7 +281,7 @@ The extension uses `https://api.kimi.com/coding/v1` by default.
 | **API endpoint** | `api.kimi.com/coding/v1` | `api.moonshot.ai/v1` |
 | **Authentication** | OAuth device flow | API key (`MOONSHOT_API_KEY`) |
 | **Billing** | Subscription (K2 Coding Plan) | Pay-per-token |
-| **Primary model** | `kimi-for-coding` | `kimi-k2.5` |
+| **Primary model** | `kimi-for-coding` | `kimi-k2.6` |
 | **kimi-cli interop** | ✅ Shared credentials | ❌ |
 | **Token refresh** | ✅ Automatic | N/A (static key) |
 | **User-Agent header** | ✅ Required by API | Not needed |
